@@ -87,6 +87,7 @@ class castle(object):
                 mc.setBlock(x-ref, y+height, z-ref+i, 0)
 
     def stairs():
+        pass
         
 
 builder = castle()
@@ -110,5 +111,3 @@ for i in range(1, 6):
     elif i % 2 != 0:
         facing = 'longitudinal'
     builder.windows(x, y, z, 10, (5 * i), 156, facing)
-		
-# end = input()
