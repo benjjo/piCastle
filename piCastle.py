@@ -37,10 +37,8 @@ class castle(object):
     def floors(self, x, y, z, width, height, material, data):
         width /= 2
         mc.setBlocks(x-width, y+height-1, z-width, x+width, y+height-1, z+width, material, data)
-        print("Floor level =", y+height-1)        
 
     def windows(self, x, y, z, width, height, material, direction):
-        print("The enrty value of y is:", y)
         # Cut the two windows, then apply a ledge to top/bottom
         
         # Cut the E/W Windows
