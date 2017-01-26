@@ -87,25 +87,28 @@ class castle(object):
     def stairs():
         pass
         
+def main():
+    
+    builder = castle()
+    # Build the perimeter fence, 6 blocks high, 50 wide out of black wool
+    builder.walls(x, y, z, 50, 6, 35, 15)
+    builder.merlon(x, y, z, 50, 6)
+    # Build the perimeter fence, 6 blocks high, 30 wide out of black wool
+    builder.walls(x, y, z, 30, 6, 35, 15)
+    builder.merlon(x, y, z, 30, 6)
+    # Build the bottom layer floor
+    builder.floors(x, y, z, 60, 0, 155, 0)
+    # Build the main tower walls
+    builder.walls(x, y, z, 10, 26, 155, 0)
+    builder.merlon(x, y, z, 10, 26)
 
-builder = castle()
-# Build the perimeter fence, 6 blocks high, 50 wide out of black wool
-builder.walls(x, y, z, 50, 6, 35, 15)
-builder.merlon(x, y, z, 50, 6)
-# Build the perimeter fence, 6 blocks high, 30 wide out of black wool
-builder.walls(x, y, z, 30, 6, 35, 15)
-builder.merlon(x, y, z, 30, 6)
-# Build the bottom layer floor
-builder.floors(x, y, z, 60, 0, 155, 0)
-# Build the main tower walls
-builder.walls(x, y, z, 10, 26, 155, 0)
-builder.merlon(x, y, z, 10, 26)
+    # Cut out the windows in a N/S, W/E pattern
+    for i in range(1, 6):
+        builder.floors(x, y, z, 10, (5 * i), 155, 0)
+        if i % 2 == 0:
+            facing = 'latitudinal'
+        elif i % 2 != 0:
+            facing = 'longitudinal'
+        builder.windows(x, y, z, 10, (5 * i), 156, facing)
 
-# Cut out the windows in a N/S, W/E pattern
-for i in range(1, 6):
-    builder.floors(x, y, z, 10, (5 * i), 155, 0)
-    if i % 2 == 0:
-        facing = 'latitudinal'
-    elif i % 2 != 0:
-        facing = 'longitudinal'
-    builder.windows(x, y, z, 10, (5 * i), 156, facing)
+main()
